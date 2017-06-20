@@ -1,0 +1,80 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="header-content">
+                    <div class="header-content-inner">
+                        <h1>Tummy Burger is a simple app to eat your favorite delicious burgers!</h1>
+                        <a href="#scroll-spot" class="btn btn-outline btn-xl page-scroll">Start Eating!</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                <img src="/assets/img/burger.svg" class="img-responsive" alt="">
+                            </div>
+                            <div class="button">
+                                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="download" class="download bg-primary text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 burger-area">
+                <h2 id="scroll-spot" class="section-heading">It's Tummy Burger Time!</h2>
+                    <form action="/" method="POST">
+                        <div class="form-group">
+                            <label for="burger-name">Enter a burger name:</label>
+                            <input type="text" id="burger-name" name="burger_name">
+                        </div>
+                        <button type="submit" class="btn btn-success sub">Submit</button>
+                    </form>
+            </div>
+        </div>
+    </div>  
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Burgers to eat</h2>
+                <hr>
+                <ul>
+                  {{#each burgers}}
+                    {{#unless this.devoured}}
+                      <li>
+                        {{this.burger_name}}
+                        <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
+                          <input type="hidden" name="devoured" value="false">
+                          <button class="btn btn-success btn-sm" type="submit">Devour it!</button>
+                        </form>
+                      </li>
+                    {{/unless}}
+                  {{/each}}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Devoured Burgers</h2>
+                <hr>
+                <ul>
+                      {{#each burgers}}
+                        {{#if this.devoured}}
+                          <li>
+                            {{this.burger_name}}
+                          </li>
+                        {{/if}}
+                      {{/each}}
+                </ul>
+            </div>
+        </div>    
+    </div>
+</section>
