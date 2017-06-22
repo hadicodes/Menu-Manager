@@ -1,24 +1,19 @@
 //// Import Sequelize library
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
 
-    // Creates burger model with column names id, burger_name, devoured, and with a timestamp
-    var burger = sequelize.define("burger", {
+    // Creates user model with column names id, user_name, devoured, and with a timestamp
+    var user = sequelize.define("user", {
         id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        burger_name: {
+        user_name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        },
-        devoured: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false,
         }
     }, {
         timestamps: true,
@@ -26,5 +21,5 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     // returns the model we just defined
-    return burger;
+    return user;
 };

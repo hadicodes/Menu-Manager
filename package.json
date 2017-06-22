@@ -1,0 +1,27 @@
+{
+  "name": "menu-management-app",
+  "version": "1.0.0",
+  "description": "Menu management software for a small restaurant.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadicodes/Menu-Management-App.git"
+  },
+  "author": "Hadi Yousufi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hadicodes/Menu-Management-App/issues"
+  },
+  "homepage": "https://github.com/hadicodes/Menu-Management-App#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.13.0",
+    "sequelize": "^4.1.0"
+  }
+}
