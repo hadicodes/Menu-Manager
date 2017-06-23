@@ -22,8 +22,8 @@ app.set("view engine", "handlebars");
 //require models
 var db = require("./models");
 
-// Import routes from burgers-controller.js to be used here in server.js
-var routes = require("./controllers/burgers_controller.js");
+// Import routes from users-controller.js to be used here in server.js
+var routes = require("./controllers/users_controller.js");
 
 app.use("/", routes);
 
