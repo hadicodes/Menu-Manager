@@ -3,27 +3,27 @@ module.exports = function (sequelize, DataTypes) {
 
     // Creates item model 
     var item = sequelize.define("item", {
-        item_id: {
+        id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        item_name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        item_description: {
+        description: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        item_category: {
+        category: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        item_price: {
+        price: {
             type: DataTypes.FLOAT,
             allowNull: false,
         }
