@@ -5,8 +5,7 @@ var router = express.Router();
 var db = require("../models");
 
 
-//Routing
-// Creates all our routes below
+//Routing:  Creates all our routes below
 // Grabs all users from the users database
 router.get("/", function(req, res) {
     db.user.findAll({})

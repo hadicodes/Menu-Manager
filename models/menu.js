@@ -1,31 +1,19 @@
 //// Import Sequelize library
 module.exports = function (sequelize, DataTypes) {
 
-    // Creates item model 
-    var meal = sequelize.define("meal", {
-        meal_id: {
+    // Creates menu model 
+    var menu = sequelize.define("menu", {
+        id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        meal_name: {
+        type: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
-        },
-        meal_description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        meal_category: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        meal_price: {
-            type: DataTypes.FLOAT,
-            allowNull: false,
         }
     }, {
         timestamps: true,
@@ -33,5 +21,5 @@ module.exports = function (sequelize, DataTypes) {
     });
 
 // returns the model we just defined
-return meal;
+return menu;
 };
