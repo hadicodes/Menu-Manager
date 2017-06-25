@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     // Creates order model
     // total
     // menu selections 
-    var order = sequelize.define("order", {
+    var Order = sequelize.define("order", {
         id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
@@ -15,6 +15,10 @@ module.exports = function (sequelize, DataTypes) {
         createdAt: true
     });
 
+    Order.belongsTo(models.User, {
+    });
+  
+
     // returns the model we just defined
-    return order;
+    return Order;
 };

@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        username: {
+        userName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -29,9 +29,9 @@ module.exports = function (sequelize, DataTypes) {
     });
 
      User.associate = function(models) {
-    User.hasMany(models.Task);
+    User.hasMany(models.order);
   }
 
     // returns the model we just defined
-    return user;
+    return User;
 };
