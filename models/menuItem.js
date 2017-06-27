@@ -1,8 +1,5 @@
-//// Import Sequelize library
 module.exports = function (sequelize, DataTypes) {
-
-    // Creates item model 
-    var item = sequelize.define("item", {
+    const MenuItem = sequelize.define('MenuItem', {
         id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
@@ -10,13 +7,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: false
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
         },
         category: {
@@ -30,8 +24,15 @@ module.exports = function (sequelize, DataTypes) {
     }, {
         timestamps: true,
         createdAt: true
+    },
+    {
+        classMethods: {
+            associate: function(models) {
+                MenuItem.belongsToMany(models.Menu, { through: 'MenuSelection' });
+
+            }
+        }
     });
 
-// returns the model we just defined
-return item;
+    return MenuItem;
 };

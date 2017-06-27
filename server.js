@@ -1,36 +1,28 @@
-//Dependencies
-var express = require("express");
-var bodyParser = require("body-parser");
+// Dependencies
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var PORT = process.env.PORT || 3000;
+const app = express();
+const exphbs = require('express-handlebars');
 
-//app to define the express instance
-var app = express();
-
-// The app's static files will be served from the "public" directory.
-app.use(express.static(process.cwd() + "/public"));
-//Parse the urlencoded data to be easier to read
+// Middleware
+app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
+// Models
+const db = require('./models');
 
-// Select handlebars as a Templating Engine option and then Set Handlebars to be used.
-var exphbs = require("express-handlebars");
+// Controllers and Routes
+const routes = require('./controllers/users_controller.js');
+app.use('/', routes);
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-//require models
-var db = require("./models");
-
-// Import routes from users-controller.js to be used here in server.js
-var routes = require("./controllers/users_controller.js");
-
-app.use("/", routes);
-
-// Syncing our sequelize models and then start our express app
+// DB connection
+const PORT = process.env.PORT || 3000;
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
-        console.log("App listening on PORT " + PORT);
+        console.log(`App listening on PORT ${PORT}`);
     });
 }).catch(function(err) {
     console.log(err);

@@ -1,10 +1,7 @@
-//// Import Sequelize library
-module.exports = function (sequelize, DataTypes) {
+// MenuSelection is the model for the join table between Menu and MenuItem
 
-    // Creates item model 
-    // menu id
-    // menuitem id
-    var item = sequelize.define("item", {
+module.exports = function (sequelize, DataTypes) {
+    const MenuSelection = sequelize.define('MenuSelection', {
         id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
@@ -15,6 +12,5 @@ module.exports = function (sequelize, DataTypes) {
         createdAt: true
     });
 
-// returns the model we just defined
-return item;
+    return MenuSelection;
 };
