@@ -6,7 +6,15 @@ module.exports = function (sequelize, DataTypes) {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             primaryKey: true
-        }
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        },
     });
 
     return MenuSelection;

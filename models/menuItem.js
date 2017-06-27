@@ -24,11 +24,20 @@ module.exports = function (sequelize, DataTypes) {
                 min: 0.01
             }
         },
-    }, 
-    {
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        }
+    }, {
         classMethods: {
-            associate: function(models) {
-                MenuItem.belongsToMany(models.Menu, { through: 'MenuSelection' });
+            associate: function (models) {
+                MenuItem.belongsToMany(models.Menu, {
+                    through: 'MenuSelection'
+                });
 
             }
         }

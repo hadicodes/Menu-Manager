@@ -8,12 +8,21 @@ module.exports = function (sequelize, DataTypes) {
         type: {
             type: DataTypes.STRING,
             allowNull: false
-        }
-    }, 
-    {
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        },
+    }, {
         classMethods: {
-            associate: function(models) {
-                Menu.belongsToMany(models.MenuItem, { through: 'MenuSelection' });
+            associate: function (models) {
+                Menu.belongsToMany(models.MenuItem, {
+                    through: 'MenuSelection'
+                });
             }
         }
     });
