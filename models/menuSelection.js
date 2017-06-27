@@ -7,9 +7,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             primaryKey: true
         }
-    }, {
-        timestamps: true,
-        createdAt: true
     });
 
     return MenuSelection;

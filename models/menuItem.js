@@ -20,11 +20,11 @@ module.exports = function (sequelize, DataTypes) {
         price: {
             type: DataTypes.FLOAT,
             allowNull: false,
-        }
-    }, {
-        timestamps: true,
-        createdAt: true
-    },
+            validate: {
+                min: 0.01
+            }
+        },
+    }, 
     {
         classMethods: {
             associate: function(models) {
