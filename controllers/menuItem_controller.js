@@ -4,17 +4,20 @@ const router = express.Router();
 
 const db = require('../models');
 
+
+// ===============================================
 // Routes
-// ============================================
+// ================================================
+
 // Retrieves all menu items from db
-router.get('/', function (req, res) {
+router.get('/menu/order', function (req, res) {
     db.MenuItem.findAll({}).then(menuItems => {
-        res.render("index", menuItems);
+        res.render("order", {menuItems: menuItems});
     });
 });
 
 //Posts a menu Item to db
-router.post("/order", function (req, res) {
+router.post("/menu/new", function (req, res) {
     db.MenuItem.create({
             itemName: req.body.name,
             description: req.body.description,
@@ -27,29 +30,13 @@ router.post("/order", function (req, res) {
 });
 
 
-
-//======================================// 
-//======================================
-//Routing -  Creates all our routes below
-// Grabs all burgers from the burgers database
-router.get("/", function (req, res) {
-    db.MenuItem.findAll({})
-        .then(function (data) {
-            var hbsObject = {
-                burgers: data
-            };
-            res.render("index", hbsObject);
-        });
-});
-
-
-//Posts a menu Item to db
-router.post("/order", function (req, res) {
-    db.MenuItem.create({
-            itemName: req.body.name,
-            description: req.body.description,
-            category: req.body.category,
-            price: req.body.price,
+//Deletes a menu item from  db
+router.delete("/:id", function (req, res) {
+    var condtion = req.params.id;
+    db.MenuItem.destroy({
+            where: {
+                id: condtion
+            }
         })
         .then(function (data) {
             res.redirect('/');
@@ -57,7 +44,8 @@ router.post("/order", function (req, res) {
 });
 
 
-//Put = Updates a menu item to db
+
+//Updates a menu item to db
 router.put("/:id", function (req, res) {
     var condtion = req.params.id;
     db.MenuItem.update({
@@ -73,18 +61,7 @@ router.put("/:id", function (req, res) {
 });
 
 
-//Deletes a menu item from  db
-router.delete("/:id", function (req, res) {
-    var condtion = req.params.id;
-    db.MenuItem.destroy({
-            where: {
-                id: condtion
-            }
-        })
-        .then(function () {
-            res.redirect('/');
-        });
-});
+
 
 
 // Export
