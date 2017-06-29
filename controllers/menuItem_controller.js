@@ -4,9 +4,10 @@ const router = express.Router();
 
 const db = require('../models');
 
-// Routing
+// Routes
+// ============================================
+// Retrieves all menu items from db
 router.get('/', function (req, res) {
-    // retrieves all menu items
     db.MenuItem.findAll({}).then(menuItems => {
         res.render("index", menuItems);
     });
@@ -15,7 +16,10 @@ router.get('/', function (req, res) {
 //Posts a menu Item to db
 router.post("/order", function (req, res) {
     db.MenuItem.create({
-            itemName: req.body.name
+            itemName: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            price: req.body.price,
         })
         .then(function (data) {
             res.redirect('/');
@@ -29,7 +33,7 @@ router.post("/order", function (req, res) {
 //Routing -  Creates all our routes below
 // Grabs all burgers from the burgers database
 router.get("/", function (req, res) {
-    db.burger.findAll({})
+    db.MenuItem.findAll({})
         .then(function (data) {
             var hbsObject = {
                 burgers: data
@@ -41,8 +45,11 @@ router.get("/", function (req, res) {
 
 //Posts a menu Item to db
 router.post("/order", function (req, res) {
-    db.burger.create({
-            itemName: req.bodyname
+    db.MenuItem.create({
+            itemName: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            price: req.body.price,
         })
         .then(function (data) {
             res.redirect('/');
@@ -78,34 +85,6 @@ router.delete("/:id", function (req, res) {
             res.redirect('/');
         });
 });
-
-
-
-
-// =====================================================
-//Posts a burger to db
-// router.post("/", function(req, res) {
-//     db.burger.create({ burger_name: req.body.burger_name })
-//         .then(function(data) {
-//             res.redirect("/#scroll-spot");
-//         });
-// });
-
-//Put = Updates a burger to db
-router.put("/:id", function (req, res) {
-    var condtion = req.params.id;
-    db.burger.update({
-            devoured: true
-        }, {
-            where: {
-                id: condtion
-            }
-        })
-        .then(function () {
-            res.redirect("/#scroll-spot");
-        });
-});
-
 
 
 // Export
