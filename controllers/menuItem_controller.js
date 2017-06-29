@@ -10,9 +10,9 @@ const db = require('../models');
 // ================================================
 
 // Retrieves all menu items from db
-router.get('/menu/order', function (req, res) {
+router.get('/menu', (req, res) => {
     db.MenuItem.findAll({}).then(menuItems => {
-        res.render("order", {menuItems: menuItems});
+        res.render("menu", {menuItems: menuItems});
     });
 });
 
