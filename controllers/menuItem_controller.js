@@ -21,7 +21,7 @@ router.post("/menu/new", function (req, res) {
     db.MenuItem.create({
             itemName: req.body.name,
             description: req.body.description,
-            category: req.body.category,
+            category: req.body.category,ha
             price: req.body.price,
         })
         .then(function (data) {
