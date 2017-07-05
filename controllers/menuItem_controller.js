@@ -19,13 +19,13 @@ router.get('/menu', (req, res) => {
 //Posts a menu Item to db
 router.post("/menu/new", function (req, res) {
     db.MenuItem.create({
-            itemName: req.body.name,
+            name: req.body.name,
             description: req.body.description,
             category: req.body.category,
             price: req.body.price,
         })
         .then(function (data) {
-            res.redirect('/');
+            res.redirect('/menu');
         });
 });
 

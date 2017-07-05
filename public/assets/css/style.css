@@ -1,3 +1,25 @@
 .login-form {
     padding-top: 40px;
 }
+
+.jumbotron-fluid {
+    display: flex;
+}
+
+.jumbotron-fluid div {
+    border: 1px solid #000;
+}
+
+.btn-menu {
+    margin-top: 22px;
+    margin-left: 8px;
+}
+
+.jmbo {
+    flex: 3
+}
+
+.mnu-box {
+    flex: 3
+    border-
+}

@@ -1,26 +1,39 @@
-<div class="jumbotron jumbotron-fluid col-6">
-    <div class="container">
-        <h1 class="display-3" style="text-align:center;">Add Menu Items</h1>
-        <p class="lead" style="text-align:center;">Please enter items that you'd like to add to the menu.</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container jmbo">
+            <h1 class="display-3" style="text-align:center;">Add Menu Items</h1>
+            <p class="lead" style="text-align:center;">Please enter items that you'd like to add to the menu.</p>
+    </div>
+    <div class="container mnu-box">
+            <h1 class="display-3" style="text-align:center;">Your Menu Items</h1>
+            <p class="lead" style="text-align:center;"></p>
     </div>
 </div>
 
-<div class="container col-6">
+
+
+
+<div class="container add-menu-item-form">
     <div class="row">
-        <p>Menu Items</p>
+        <form class="form-inline" action="/menu/new" method="post">
+            <fieldset class="form-group">
+                <label for="item-name">Add a menu item:</label>
+                <input type="text" class="form-control" id="item-name" name="name">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="item-description">Add Description:</label>
+                <input type="text" class="form-control" id="item-description" name="description">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="item-category">Add Category:</label>
+                <input type="text" class="form-control" id="item-category" name="category">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="item-price">Add Price:</label>
+                <input type="text" class="form-control" id="item-price" name="price">
+            </fieldset>
+            <button type="submit" class="btn btn-success btn-menu">Submit</button>
+        </form>
     </div>
-</div>
-
-<div class="container">
-    <div class="row"></div>
-    <form action="/html/tags/html_form_tag_action.cfm">
-        <fieldset class="form-group">
-            <label for="first_name">Add a menu item:</label>
-            <input type="text" class="form-control" id="first_name" name="first_name">
-        </fieldset>
-    
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
 </div>
 
 
