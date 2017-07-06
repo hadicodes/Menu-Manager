@@ -17,7 +17,7 @@ router.get('/menu', (req, res) => {
 });
 
 //Posts a menu Item to db
-router.post("/menu/new", function (req, res) {
+router.post("/menu/add", function (req, res) {
     db.MenuItem.create({
             name: req.body.name,
             description: req.body.description,
