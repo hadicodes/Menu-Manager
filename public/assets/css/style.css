@@ -1,13 +1,13 @@
+.navbar {
+    background: linear-gradient(135deg, #170b32 0%, #3d3379 100%);
+}
+
 .login-form {
     padding-top: 40px;
 }
 
 .jumbotron-fluid {
-    display: flex;
-}
-
-.jumbotron-fluid div {
-    border: 1px solid #000;
+    background: linear-gradient(135deg, #170b32 0%, #3d3379 100%);
 }
 
 .btn-menu {
@@ -15,11 +15,34 @@
     margin-left: 8px;
 }
 
-.jmbo {
-    flex: 3
+h1,
+p {
+    color: #f7f7f7;
 }
 
-.mnu-box {
-    flex: 3
-    border-
+input {
+    margin-right: 10px;
 }
+
+body {
+    background: #fff;
+}
+
+button {
+    background: #FF512F;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F09819, #FF512F);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F09819, #FF512F);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-color: background: #FF512F;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F09819, #FF512F);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F09819, #FF512F);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.add-menu-item-form [
+    text-align: center
+]
