@@ -11,8 +11,12 @@ const db = require('../models');
 
 // Retrieves all menu items from db
 router.get('/menu', (req, res) => {
-    db.MenuItem.findAll({}).then(menuItems => {
-        res.render("menu", {menuItems: menuItems});
+    db.MenuItem.findAll({
+        group: 'category'
+    }).then(menuItems => {
+        res.render("menu", {
+            menuItems: menuItems
+        });
     });
 });
 
@@ -27,6 +31,17 @@ router.post("/menu/add", function (req, res) {
         .then(function (data) {
             res.redirect('/menu');
         });
+});
+//======================================/
+// Order Checkout Route
+//======================================
+// Retrieves all added menu items for an order from db
+router.get('/order', (req, res) => {
+    db.MenuItem.findAll({}).then(menuItems => {
+        res.render("order", {
+            menuItems: menuItems
+        });
+    });
 });
 
 
@@ -48,15 +63,9 @@ router.delete("/:id", function (req, res) {
 //Updates a menu item to db
 router.put("/:id", function (req, res) {
     var condtion = req.params.id;
-    db.MenuItem.update({
-            devoured: true
-        }, {
-            where: {
-                id: condtion
-            }
-        })
+    db.MenuItem.update({})
         .then(function () {
-            res.redirect("/#scroll-spot");
+            res.redirect("/");
         });
 });
 
