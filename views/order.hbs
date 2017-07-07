@@ -1,18 +1,6 @@
 <div class="container order-header">
     <div class="container">
-        <h1 class="display-3">Your Order:</h1>
-        <p class="lead" style="text-align:center;">Please enter items that you'd like to add to the menu.</p>
+        <h1 class="display-3 large-text">Your Order:</h1>
     </div>
 </div>
 
-{{#each menuItems}}
-<div class="card" style="width: 30rem;">
-    <img class="card-img-top" src="/public/assets/img/gyros.jpg" alt="Card image">
-    <div class="card-block">
-        <h4 class="card-title">{{{ this.name }}}</h4>
-        <p class="card-text">Category: {{{ this.category }}}</p>
-        <p class="card-text">{{{ this.description }}}</p>
-        <a href="#" class="btn btn-primary">{{{ this.price }}}</a>
-    </div>
-</div>
-<br> {{/each}}

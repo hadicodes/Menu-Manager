@@ -1,10 +1,19 @@
+<div class="container header">
+    <div class="container">
+        <h1 class="display-3" style="text-align:center;">Menu Items</h1>
+    </div>
+</div>
 
-
-<h4>
-    {{#each menuItems}}
-        {{{this.category}}}
-    {{/each}}
-</h4>
+{{#each menuItems}}
+<div class="card" style="width: 30rem;">
+    <img class="card-img-top" src="../public/assets/img/gyros.jpg" alt="Card image">
+    <div class="card-block">
+        <h4 class="card-title">{{{ this.name }}}</h4>
+        <p class="card-text">Category: {{{ this.category }}}</p>
+        <a href="#" class="btn btn-primary">{{{ this.price }}}</a>
+    </div>
+</div>
+<br> {{/each}}
 
 {{!--{{#each menuItems}}
 <div class="container">

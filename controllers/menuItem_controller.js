@@ -12,9 +12,20 @@ const db = require('../models');
 // Retrieves all menu items from db
 router.get('/menu', (req, res) => {
     db.MenuItem.findAll({
-        group: 'category'
     }).then(menuItems => {
         res.render("menu", {
+            menuItems: menuItems
+        });
+    });
+});
+
+//======================================/
+// Add Items Route
+//======================================
+router.get('/menu/add', (req, res) => {
+    db.MenuItem.findAll({
+    }).then(menuItems => {
+        res.render("add", {
             menuItems: menuItems
         });
     });
