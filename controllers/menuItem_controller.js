@@ -12,6 +12,7 @@ const db = require('../models');
 // Retrieves all menu items from db
 router.get('/menu', (req, res) => {
     db.MenuItem.findAll({
+        order: ['category']
     }).then(menuItems => {
         res.render("menu", {
             menuItems: menuItems

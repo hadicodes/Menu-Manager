@@ -4,16 +4,24 @@
     </div>
 </div>
 
-{{#each menuItems}}
-<div class="card" style="width: 30rem;">
-    <img class="card-img-top" src="../public/assets/img/gyros.jpg" alt="Card image">
-    <div class="card-block">
-        <h4 class="card-title">{{{ this.name }}}</h4>
-        <p class="card-text">Category: {{{ this.category }}}</p>
-        <a href="#" class="btn btn-primary">{{{ this.price }}}</a>
+<div class="container">
+    <div class="list-group">
+    {{#each menuItems}}
+        <div class="list-group-item justify-content-between">
+            <div> 
+                <h4 class="card-title">{{ this.name }}</h4>
+                <p class="card-text">{{ this.category }}</p>
+                <a href="#" class="btn btn-primary">{{ this.price }}</a>
+            </div>
+            <div class="div">
+                <input type="checkbox" name="id" value={{this.id}}>Add to cart
+            </div>
+        </div>
+    {{/each}}
     </div>
+    <br>
+    <button class="float-right btn-success btn">Add Items to Cart</button>
 </div>
-<br> {{/each}}
 
 {{!--{{#each menuItems}}
 <div class="container">
