@@ -2,6 +2,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+var passport   = require('passport')
+var session    = require('express-session')
+
+
 const app = express();
 const exphbs = require('express-handlebars');
 
