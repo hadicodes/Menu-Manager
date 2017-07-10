@@ -59,3 +59,8 @@ button.btn.btn-success.btn-menu {
 .add-menu-item-form {
     margin-top: 10px;
 }
+
+.order-total{
+    width: 25%;
+    float: right;
+}
