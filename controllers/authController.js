@@ -1,15 +1,14 @@
-var exports = module.exports = {}
- 
-exports.signup = function(req, res) {
- 
-    res.render('signup');
- 
-}
+// Dependencies
+const express = require('express');
+const router = express.Router();
 
-var authController = require('../controllers/authcontroller.js');
+const db = require('../models');
  
-module.exports = function(app) {
+router.get('/signup', function(req, res) {
+
+    res.render('signup');
+
+});
  
-    app.get('/signup', authController.signup);
- 
-}
+// Export
+module.exports = router;

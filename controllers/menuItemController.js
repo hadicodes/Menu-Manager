@@ -4,7 +4,6 @@ const router = express.Router();
 
 const db = require('../models');
 
-
 // ===============================================
 // Routes
 // ================================================
@@ -44,6 +43,7 @@ router.post("/menu/add", function (req, res) {
             res.redirect('/menu');
         });
 });
+
 //======================================/
 // Order Checkout Route
 //======================================
@@ -55,7 +55,6 @@ router.get('/order', (req, res) => {
         });
     });
 });
-
 
 //Deletes a menu item from  db
 router.delete("/:id", function (req, res) {
@@ -70,8 +69,6 @@ router.delete("/:id", function (req, res) {
         });
 });
 
-
-
 //Updates a menu item to db
 router.put("/:id", function (req, res) {
     var condtion = req.params.id;
@@ -80,10 +77,6 @@ router.put("/:id", function (req, res) {
             res.redirect("/");
         });
 });
-
-
-
-
 
 // Export
 module.exports = router;
