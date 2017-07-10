@@ -36,7 +36,7 @@ app.use(passport.session()); // persistent login sessions
 const db = require('./models');
 
 // Controllers and Routes
-const routes = require('./controllers/menuItem_controller.js');
+const routes = require('./controllers/menuItemController.js');
 app.use('/', routes);
 
 // DB connection

@@ -8,7 +8,7 @@ const db = require('../models');
 // Routes
 // ================================================
 
-// Retrieves all menu items from db
+// Retrieves all menu items from db, groups by category.
 router.get('/menu', (req, res) => {
     db.MenuItem.findAll({
         order: ['category']
