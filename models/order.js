@@ -1,28 +1,14 @@
+// Order is the model for the join table between Menu and MenuItem
+
 module.exports = function (sequelize, DataTypes) {
-    const MenuItem = sequelize.define('MenuItem', {
+    const Order = sequelize.define('Order', {
         id: {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        description: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        price: {
-            type: DataTypes.FLOAT,
-            allowNull: false,
-            validate: {
-                min: 0.01
-            }
+        total: {
+            type: DataTypes.float,
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -32,15 +18,16 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
         }
-    }, {
+    },{
         classMethods: {
             associate: function (models) {
-                MenuItem.belongsToMany(models.Order, {
+                Order.belongsToMany(models.MenuItem, {
                     through: 'OrderedMenuItem'
                 });
+
             }
         }
     });
 
-    return MenuItem;
+    return Order;
 };
