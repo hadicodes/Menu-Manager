@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true
         },
         total: {
-            type: DataTypes.float,
+            type: DataTypes.FLOAT,
         },
         createdAt: {
             type: DataTypes.DATE,

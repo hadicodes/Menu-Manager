@@ -18,7 +18,10 @@ app.use(bodyParser.json());
 // Use handlebars as our templating engine
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
-    extname: '.hbs'
+    extname: '.hbs',
+    helpers: {
+        "raw-helper": function (options) { return options.fn(); },
+    }
 }));
 // Set our view engine to be Handlebars i.e. uses .hbs extension on files
 app.set('view engine', '.hbs');
@@ -37,7 +40,9 @@ const db = require('./models');
 
 // Controllers and Routes
 const routes = require('./controllers/menuItemController.js');
+const apiRoutes = require('./controllers/apiController.js');
 app.use('/', routes);
+app.use('/api', apiRoutes);
 
 // DB connection
 const PORT = process.env.PORT || 3000;

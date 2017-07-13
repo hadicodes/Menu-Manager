@@ -8,6 +8,11 @@ const db = require('../models');
 // Routes
 // ================================================
 
+// Root route
+router.get('/', (req, res) => {
+   res.send("THIS IS ROOT. SUCCESS YAY!");
+});
+
 // Retrieves all menu items from db, groups by category.
 router.get('/menu', (req, res) => {
     db.MenuItem.findAll({
