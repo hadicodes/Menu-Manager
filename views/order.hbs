@@ -26,6 +26,7 @@
 <br> {{!--Order Total--}}
 <footer class="footer order-total">
     <div class="container">
+        <button id="update-total-button" class="btn btn-primary" role="button">Update Total</button>
         <table class="table">
             <thead class="thead-inverse">
                 <tr>
@@ -37,7 +38,7 @@
             <tbody>
                 <tr>
                     <th scope="row">
-                        <h4>$5.00</h4>
+                        <h4 id="total"></h4>
                     </th>
                     <tr>
             </tbody>
@@ -49,12 +50,12 @@
 {{{{raw-helper}}}}
 <script id="menuitems-list-template" type="text/x-handlebars-template">
     {{#each orderableMenuItems}}
-        <tr>
-            <td>{{this.name}}</td>
-            <td>{{this.price}}</td>
-            <td><input type="number" name="quantity" min="1" max="10" placeholder="1"></td>
+        <tr class="menuitem-details">
+            <td class="menuitem-name">{{this.name}}</td>
+            <td class="menuitem-price">{{this.price}}</td>
+            <td><input class="menuitem-quantity" type="number" name="quantity" min="1" max="10"></td>
         </tr>
     {{/each}}
 </script>
 {{{{/raw-helper}}}}
-<script src="/js/renderOrderItems.js"></script>
+<script src="/js/renderOrder.js"></script>
