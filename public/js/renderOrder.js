@@ -3,6 +3,7 @@ $(document).ready(function () {
     updateTotalButtonClick();
 });
 
+// Gets menu item's id from session storage
 function getMenuItemsData() {
     const menuItemsIds = sessionStorage.getItem('menuItemIds');
     const url = '/api/menuItems/ids';
