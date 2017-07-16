@@ -27,41 +27,27 @@ module.exports = function (passport, user) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 
             };
-
-
-
+            // Uses Sequelize User model and Checks to see if the user already exists, and if not we add them.
             User.findOne({
                 where: {
                     email: email
                 }
             }).then(function (user) {
 
-                if (user)
-
-                {
+                if (user) {
 
                     return done(null, false, {
                         message: 'That email is already taken'
                     });
 
-                } else
-
-                {
-
+                } else {
                     var userPassword = generateHash(password);
-
-                    var data =
-
-                        {
-                            email: email,
-
-                            password: userPassword,
-
-                            firstname: req.body.firstname,
-
-                            lastname: req.body.lastname
-
-                        };
+                    var data = {
+                        email: email,
+                        password: userPassword,
+                        firstname: req.body.firstname,
+                        lastname: req.body.lastname
+                    };
 
                     User.create(data).then(function (newUser, created) {
 

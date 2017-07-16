@@ -3,12 +3,12 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../models');
- 
-router.get('/signup', function(req, res) {
 
-    res.render('signup');
+// controller for the signin route
+var exports = module.exports = {};
 
-});
+exports.signin = function(req, res) {
  
-// Export
-module.exports = router;
+    res.render('signin');
+ 
+}
