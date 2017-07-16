@@ -14,3 +14,6 @@ VALUES ("Gyro Burger", "Delcious 1/4 pounder with tasty Gryos and spicy sauce.",
 	   ("Lava Cake", "Decadent Brownies with a molten chocolate filling and a scoop of french vanilla ice cream on the side", "Dessert", 6.50),
 	   ("Chicken Soup", "Hearty shredded Chicken in a grandma-styled  soup", "Soup", 4.99),
 	   ("Chilean Salad", "Contains tomato, onion, coriander and olive oil, and sometimes with chili peppers", "Salad", 8.99);
+
+INSERT into users (userName, password)
+VALUES ("admin", "admin");

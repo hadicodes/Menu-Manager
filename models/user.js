@@ -1,24 +1,35 @@
-module.exports = function (sequelize, Sequelize) {
+module.exports = function (sequelize, DataTypes) {
 
-    var User = sequelize.define('user', {
+    const User = sequelize.define('User', {
 
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: Sequelize.INTEGER
+            type: DataTypes.INTEGER
         },
 
         userName: {
-            type: Sequelize.TEXT
+            type: DataTypes.STRING,
+            allowNull: false
         },
 
         password: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
+        },
+
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+        },
+
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
         }
 
     });
 
     return User;
 
-}
+};
