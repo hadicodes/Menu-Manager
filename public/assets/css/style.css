@@ -1,9 +1,6 @@
 nav.navbar.navbar-toggleable {
-
     color: #f7f7f7;
 }
-
-
 
 .login-form {
     padding-top: 40px;
@@ -63,17 +60,27 @@ button.btn.btn-success.btn-menu {
     margin-top: 10px;
 }
 
-.order-total{
+.order-total {
     width: 25%;
     float: right;
 }
 
-/*Signup Page  */
-.signup-box {
-    padding-top: 50%;
-    border-radius: 5px;
-    border: 2px solid #8ED1FD;
-    padding: 20px; 
-    width: 200px;
-    height: 150px;
+
+/*Signin Page  */
+
+input#inlineFormInput.form-control {
+    margin-bottom: 10px;
+    width: 25%;
+}
+
+form#signin.form-group {
+    width: 25%;
+}
+
+input#name.form-control {
+    margin-bottom: 10px;
+}
+
+input#password.form-control {
+    margin-bottom: 10px;
 }

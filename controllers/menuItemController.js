@@ -10,7 +10,7 @@ const db = require('../models');
 
 // Root route (displays signup form)
 router.get('/', (req, res) => {
-   res.render('signup');
+   res.render('signin');
 });
 
 // Retrieves all menu items from db, groups by category.
