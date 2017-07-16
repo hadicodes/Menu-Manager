@@ -1,25 +1,24 @@
-.navbar {
-    background: linear-gradient(135deg, #170b32 0%, #3d3379 100%);
-}
+nav.navbar.navbar-toggleable {
 
-.navbar-nav{
     color: #f7f7f7;
 }
+
+
 
 .login-form {
     padding-top: 40px;
 }
 
 .jumbotron-fluid {
-    background: linear-gradient(135deg, #170b32 0%, #3d3379 100%);
+    /* background: linear-gradient(135deg, #170b32 0%, #3d3379 100%); */
 }
 
 .header,
 .order-header {
-    background: linear-gradient(135deg, #170b32 0%, #3d3379 100%);
+    /* background: linear-gradient(135deg, #170b32 0%, #3d3379 100%); */
     width: 100%;
     padding-bottom: 10px;
-    color: #f7f7f7;
+    color: #1A1A43;
 }
 
 .order-header {

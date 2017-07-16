@@ -30,7 +30,7 @@ router.get('/menu', (req, res) => {
 router.get('/menu/add', (req, res) => {
     db.MenuItem.findAll({
     }).then(menuItems => {
-        res.render("add", {
+        res.render("addMenuItem", {
             menuItems: menuItems
         });
     });
