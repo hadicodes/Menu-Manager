@@ -2,6 +2,10 @@
     background: linear-gradient(135deg, #170b32 0%, #3d3379 100%);
 }
 
+.navbar-nav{
+    color: #f7f7f7;
+}
+
 .login-form {
     padding-top: 40px;
 }
@@ -63,4 +67,14 @@ button.btn.btn-success.btn-menu {
 .order-total{
     width: 25%;
     float: right;
+}
+
+/*Signup Page  */
+.signup-box {
+    padding-top: 50%;
+    border-radius: 5px;
+    border: 2px solid #8ED1FD;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;
 }

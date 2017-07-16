@@ -35,7 +35,7 @@ function getTotal() {
         var menuItemPrice = parseFloat($(this).closest('.menuitem-details').find('.menuitem-price').text());
         return menuItemQuantity * menuItemPrice;
     }).get();
-    var total = totalPriceForItems.reduce(function(prev, current) {
+    var total = totalPriceForItems.reduce(function (prev, current) {
         return prev + current;
     });
     return total;
