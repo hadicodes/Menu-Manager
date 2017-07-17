@@ -24,8 +24,9 @@ module.exports = function (sequelize, DataTypes) {
                 min: 0.01
             }
         },
-        img: {
-            type: DataTypes.BLOB
+        image: {
+            type: DataTypes.BLOB,
+            allowNull: false,
         },
         createdAt: {
             type: DataTypes.DATE,
