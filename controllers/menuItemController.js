@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 // Retrieves all menu items from db, groups by category.
 router.get('/menu', (req, res) => {
     db.MenuItem.findAll({
-        group: 'category'
+        order: ['category']
     }).then(menuItems => {
         res.render("menu", {
             menuItems: menuItems
