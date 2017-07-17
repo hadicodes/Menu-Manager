@@ -10,13 +10,13 @@ const db = require('../models');
 
 // Root route (displays signup form)
 router.get('/', (req, res) => {
-   res.render('signin');
+    res.render('signin');
 });
 
 // Retrieves all menu items from db, groups by category.
 router.get('/menu', (req, res) => {
     db.MenuItem.findAll({
-        order: ['category']
+        group: 'category'
     }).then(menuItems => {
         res.render("menu", {
             menuItems: menuItems
@@ -28,8 +28,7 @@ router.get('/menu', (req, res) => {
 // Add Items Route
 //======================================
 router.get('/menu/add', (req, res) => {
-    db.MenuItem.findAll({
-    }).then(menuItems => {
+    db.MenuItem.findAll({}).then(menuItems => {
         res.render("addMenuItem", {
             menuItems: menuItems
         });

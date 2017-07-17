@@ -43,5 +43,5 @@ function getTotal() {
 
 function updateTotal() {
     var total = getTotal();
-    $('#total').html(total);
+    $('#total').html('$ '+ total);
 }

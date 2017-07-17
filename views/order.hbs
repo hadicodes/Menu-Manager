@@ -16,6 +16,9 @@
             <th>
                 <h4>Quantity</h4>
             </th>
+            <th>
+                <h4>Delete</h4>
+            </th>
         </tr>
     </thead>
     <tbody id="menuitems-list"></tbody>
@@ -54,6 +57,7 @@
             <td class="menuitem-name">{{this.name}}</td>
             <td class="menuitem-price">{{this.price}}</td>
             <td><input class="menuitem-quantity" type="number" name="quantity" min="1" max="10"></td>
+            <td><button type="button" class="btn btn-danger">Delete</button></td> 
         </tr>
     {{/each}}
 </script>
