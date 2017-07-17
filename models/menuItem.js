@@ -24,6 +24,9 @@ module.exports = function (sequelize, DataTypes) {
                 min: 0.01
             }
         },
+        img: {
+            type: DataTypes.BLOB
+        },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
