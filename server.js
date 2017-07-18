@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 app.use(bodyParser.json());
 // Use handlebars as our templating engine
@@ -29,7 +29,7 @@ app.set('view engine', '.hbs');
 
 // For Passport
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'menumanager',
     resave: true,
     saveUninitialized: true
 })); // session secret
@@ -40,9 +40,9 @@ app.use(passport.session()); // persistent login sessions
 const db = require('./models');
 
 // Controllers and Routes
-const routes = require('./controllers/menuItemController.js');
+const htmlRoutes = require('./routes/htmlRoutes.js');
 const apiRoutes = require('./controllers/apiController.js');
-app.use('/', routes);
+app.use('/', htmlRoutes);
 app.use('/api', apiRoutes);
 
 //load passport strategies

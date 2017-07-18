@@ -1,13 +1,14 @@
 // Dependencies
 const express = require('express');
-const router = express.Router();
+
+var exports = module.exports = {};
 
 const db = require('../models');
 
 // ===============================================
 // Routes
 // ================================================
-router.get('/menuItems/ids', (req, res) => {
+exports.renderMenuItemIds = function (req, res) {
     const menuItemIdsString = req.query.menuItemIds || "";
     const menuItemIds = menuItemIdsString.split(',');
     db.MenuItem.findAll({
@@ -20,7 +21,4 @@ router.get('/menuItems/ids', (req, res) => {
     }).then(menuItems => {
         res.json(menuItems);
     });
-});
-
-// Export
-module.exports = router;
+};

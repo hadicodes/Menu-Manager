@@ -1,20 +1,12 @@
 // Dependencies
-const express = require('express');
-const router = express.Router();
-
 const db = require('../models');
 
-// ===============================================
-// Routes
-// ================================================
+var exports = module.exports = {};
 
-// Root route (displays signup form)
-router.get('/', (req, res) => {
-    res.render('signin');
-});
-
-// Retrieves all menu items from db, groups by category.
-router.get('/menu', (req, res) => {
+//======================================
+// Get Menu Controller
+//======================================
+exports.getMenu = function (req, res) {
     db.MenuItem.findAll({
         order: ['category']
     }).then(menuItems => {
@@ -22,21 +14,21 @@ router.get('/menu', (req, res) => {
             menuItems: menuItems
         });
     });
-});
+};
 
-//======================================/
-// Add Items Route
 //======================================
-router.get('/menu/add', (req, res) => {
+// Add Items Controller
+//======================================
+exports.renderAddMenuItemPage = function (req, res) {
     db.MenuItem.findAll({}).then(menuItems => {
         res.render("addMenuItem", {
             menuItems: menuItems
         });
     });
-});
+};
 
 //Posts a menu Item to db
-router.post("/menu/add", function (req, res) {
+exports.createMenuItem = function (req, res) {
     db.MenuItem.create({
             name: req.body.name,
             description: req.body.description,
@@ -46,22 +38,26 @@ router.post("/menu/add", function (req, res) {
         .then(function (data) {
             res.redirect('/menu');
         });
-});
+};
 
 //======================================/
 // Order Checkout Route
 //======================================
 // Retrieves all added menu items for an order from db
-router.get('/order', (req, res) => {
+exports.renderOrder = function (req, res) {
     db.MenuItem.findAll({}).then(menuItems => {
         res.render("order", {
             menuItems: menuItems
         });
     });
-});
+};
 
+
+//======================================
+// Delete Items Controller
+//======================================
 //Deletes a menu item from  db
-router.delete("/:id", function (req, res) {
+exports.deleteMenuItem = function (req, res) {
     var condtion = req.params.id;
     db.MenuItem.destroy({
             where: {
@@ -69,18 +65,18 @@ router.delete("/:id", function (req, res) {
             }
         })
         .then(function (data) {
-            res.redirect('/');
+            res.redirect('/menu');
         });
-});
+};
 
+//======================================
+// Update Items Controller
+//======================================
 //Updates a menu item to db
-router.put("/:id", function (req, res) {
+exports.updateMenuItem = function (req, res) {
     var condtion = req.params.id;
     db.MenuItem.update({})
         .then(function () {
-            res.redirect("/");
+            res.redirect("/menu");
         });
-});
-
-// Export
-module.exports = router;
+};

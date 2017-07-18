@@ -2,45 +2,28 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController.js');
 
-const db = require('../models');
+// Root route (displays signup form)
+router.get('/', authController.signin);
 
-module.exports = function (router, passport) {
+// router.get('/logout', authController.logout);
 
-    router.get('/signup', authController.signup);
+// router.post('/signin', passport.authenticate('local-signin', {
+//         successRedirect: '/addMenuItem',
 
-    router.get('/signin', authController.signin);
+//         failureRedirect: '/signin'
+//     }
 
-    router.post('/signup', passport.authenticate('local-signup', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/signup'
-        }
-
-    ));
+// ));
 
 
-    router.get('/dashboard', isLoggedIn, authController.dashboard);
+// function isLoggedIn(req, res, next) {
 
-    router.get('/logout', authController.logout);
+//     if (req.isAuthenticated())
 
-    router.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/addMenuItem',
+//         return next();
 
-            failureRedirect: '/signin'
-        }
+//     res.redirect('/signin');
 
-    ));
-
-
-    function isLoggedIn(req, res, next) {
-
-        if (req.isAuthenticated())
-
-            return next();
-
-        res.redirect('/signin');
-
-    }
-
-}
+// }
 
 module.exports = router;
