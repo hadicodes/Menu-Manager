@@ -1,25 +1,12 @@
-// Imports bcrypt which we need to secure passwords.
+//load bcrypt
 var bCrypt = require('bcrypt-nodejs');
 
-// Initializes the passport-local strategy, and the user model, which will be passed as an argument.
 module.exports = function (passport, user) {
 
   var User = user;
   var LocalStrategy = require('passport-local').Strategy;
 
-  // Our custom strategy with our instance of the LocalStrategy
-  passport.use('local-signup', new LocalStrategy(
 
-    {
-      usernameField: 'userName',
-      passwordField: 'password',
-      passReqToCallback: true // allows us to pass back the entire request to the callback
-
-    },
-
-  ));
-
-  //serialize
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
@@ -36,6 +23,55 @@ module.exports = function (passport, user) {
     });
 
   });
+
+
+  passport.use('local-signup', new LocalStrategy(
+
+    {
+      usernameField: 'userName',
+      passwordField: 'password',
+      passReqToCallback: true // allows us to pass back the entire request to the callback
+    },
+
+    function (req, userName, password, done) {
+
+
+      var generateHash = function (password) {
+        return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+      };
+
+      User.findOne({
+        where: {
+          userName: userName
+        }
+      }).then(function (user) {
+
+        if (user) {
+          return done(null, false, {
+            message: 'That username is already taken'
+          });
+        } else {
+          var userPassword = generateHash(password);
+          var data = {
+            userName: userName,
+            password: userPassword
+          };
+
+
+          User.create(data).then(function (newUser, created) {
+            if (!newUser) {
+              return done(null, false);
+            }
+
+            if (newUser) {
+              return done(null, newUser);
+
+            }
+          });
+        }
+      });
+    }
+  ));
 
   //LOCAL SIGNIN
   passport.use('local-signin', new LocalStrategy(
@@ -64,7 +100,7 @@ module.exports = function (passport, user) {
 
         if (!user) {
           return done(null, false, {
-            message: 'Email does not exist'
+            message: 'user name does not exist'
           });
         }
 

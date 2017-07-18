@@ -6,6 +6,14 @@ module.exports = function (app, passport) {
     // route to signup page
     app.get('/signup', authController.signup);
 
+    app.post('/signup', passport.authenticate('local-signup', {
+            successRedirect: '/menu',
+            failureRedirect: '/signup',
+            failureFlash: true
+        }
+
+    ));
+
     // route to signin page
     app.get('/', authController.signin);
 
@@ -13,17 +21,8 @@ module.exports = function (app, passport) {
     app.get('/logout', authController.logout);
 
     app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/addMenuItem',
-        failureRedirect: '/'
+        successRedirect: '/menu/add',
+        failureRedirect: '/',
+        failureFlash: true
     }));
-
-    function isLoggedIn(req, res, next) {
-
-        if (req.isAuthenticated())
-
-            return next();
-
-        res.redirect('/signin');
-
-    }
 };

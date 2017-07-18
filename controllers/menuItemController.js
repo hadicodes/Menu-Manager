@@ -22,7 +22,8 @@ exports.getMenu = function (req, res) {
 exports.renderAddMenuItemPage = function (req, res) {
     db.MenuItem.findAll({}).then(menuItems => {
         res.render("addMenuItem", {
-            menuItems: menuItems
+            menuItems: menuItems, 
+            loggedin: true
         });
     });
 };

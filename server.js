@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 
 var passport = require('passport');
 var session = require('express-session');
+var flash = require('connect-flash');
 
 // Instantiate express
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(flash());
 app.use(bodyParser.json());
 // Use handlebars as our templating engine
 app.engine('.hbs', exphbs({

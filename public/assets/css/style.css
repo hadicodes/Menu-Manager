@@ -1,7 +1,8 @@
 /*Main page  */
+
 nav.navbar.navbar-toggleable {
     color: #f7f7f7;
-    background-color: #2196f3;
+    background-color: black;
 }
 
 a.navbar-brand {
@@ -38,7 +39,9 @@ input#username.form-control {
     /* background: linear-gradient(135deg, #170b32 0%, #3d3379 100%); */
 }
 
+
 /*Order Page  */
+
 .header,
 .order-header {
     /* background: linear-gradient(135deg, #170b32 0%, #3d3379 100%); */
@@ -56,10 +59,9 @@ input#username.form-control {
     margin-left: 8px;
 }
 
-button#update-total-button.btn.btn-primary{
+button#update-total-button.btn.btn-primary {
     margin-bottom: 5px;
 }
-
 
 input {
     margin-right: 10px;
@@ -68,7 +70,6 @@ input {
 body {
     background: #fff;
 }
-
 
 .add-menu-item-form {
     margin-top: 10px;
@@ -81,6 +82,7 @@ body {
 
 
 /*Signin Page  */
+
 input#inlineFormInput.form-control {
     margin-bottom: 10px;
     width: 25%;
