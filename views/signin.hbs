@@ -1,20 +1,25 @@
 {{#if error}}
-    <div class="alert alert-danger" role="alert">
-        <strong>Oh snap!</strong> {{error}}
-    </div>
+<div class="alert alert-danger" role="alert">
+    <strong>Oh snap!</strong> {{error}}
+</div>
 {{/if}}
 
 <div class="container signin">
-    <form class="form-group" name="signin" id="signin" method="post" action="signin">
-        <div class=" signin-heading">
-            <h2>Login</h2>
-            </div>
-        <label class="sr-only" for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="userName" placeholder="Username">
+    <div class="row">
+        <div class="col signin-box">
+            <form class="form-group" name="signin" id="signin" method="post" action="signin">
+                <div class=" signin-heading">
+                    <h2>Login</h2>
+                </div>
+                <label class="sr-only" for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="userName" placeholder="Username">
 
-        <label class="sr-only" for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label class="sr-only" for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 
-        <button type="submit" class="btn btn-primary" value="Sign In"> Submit</button>
-    </form>
+                <button type="submit" class="btn btn-primary" value="Sign In"> Submit</button>
+            </form>
+        </div>
+    </div>
+
 </div>
