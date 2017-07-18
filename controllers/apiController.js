@@ -1,14 +1,11 @@
-// Dependencies
-const express = require('express');
-
 var exports = module.exports = {};
 
 const db = require('../models');
 
 // ===============================================
-// Routes
+// Menu Items 
 // ================================================
-exports.renderMenuItemIds = function (req, res) {
+exports.renderMenuItemsFromIds = function (req, res) {
     const menuItemIdsString = req.query.menuItemIds || "";
     const menuItemIds = menuItemIdsString.split(',');
     db.MenuItem.findAll({

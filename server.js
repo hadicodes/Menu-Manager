@@ -41,15 +41,14 @@ const db = require('./models');
 
 // Controllers and Routes
 const htmlRoutes = require('./routes/htmlRoutes.js');
-const apiRoutes = require('./controllers/apiController.js');
+const apiRoutes = require('./routes/apiRoutes.js');
 app.use('/', htmlRoutes);
 app.use('/api', apiRoutes);
 
 //load passport strategies
 require('./config/passport/passport.js')(passport, db.User);
 //authRoute
-var authRoute = require('./routes/auth.js');
-app.use('/', authRoute);
+var authRoute = require('./routes/auth.js')(app, passport);
 
 // DB connection & syncs database
 const PORT = process.env.PORT || 3000;

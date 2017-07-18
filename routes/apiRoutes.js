@@ -1,7 +1,9 @@
 // Dependencies
+const express = require('express');
 const router = express.Router();
 
-var exports = module.exports = {};
+const apiController = require('../controllers/apiController.js');
 
-router.get('/menuItems/ids', apiController.renderMenuItemIds);
+router.get('/menuItems/ids', apiController.renderMenuItemsFromIds);
 
+module.exports = router;
