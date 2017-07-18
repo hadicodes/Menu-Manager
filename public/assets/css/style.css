@@ -1,5 +1,33 @@
+/*Main page  */
 nav.navbar.navbar-toggleable {
     color: #f7f7f7;
+    background-color: #2196f3;
+}
+
+a.navbar-brand {
+    color: #fff;
+}
+
+a.nav-link {
+    color: #fff;
+}
+
+div.signup-heading {
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+form#signup.form-group {
+    width: 25%;
+}
+
+div.signin-heading {
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+input#username.form-control {
+    margin-bottom: 10px;
 }
 
 .login-form {
@@ -10,6 +38,7 @@ nav.navbar.navbar-toggleable {
     /* background: linear-gradient(135deg, #170b32 0%, #3d3379 100%); */
 }
 
+/*Order Page  */
 .header,
 .order-header {
     /* background: linear-gradient(135deg, #170b32 0%, #3d3379 100%); */
@@ -27,11 +56,10 @@ nav.navbar.navbar-toggleable {
     margin-left: 8px;
 }
 
+button#update-total-button.btn.btn-primary{
+    margin-bottom: 5px;
+}
 
-/*h1,
-p {
-    color: #f7f7f7;
-}*/
 
 input {
     margin-right: 10px;
@@ -41,20 +69,6 @@ body {
     background: #fff;
 }
 
-button.btn.btn-success.btn-menu {
-    background: #FF512F;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F09819, #FF512F);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F09819, #FF512F);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-color: #F09819;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F09819, #FF512F);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F09819, #FF512F);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 .add-menu-item-form {
     margin-top: 10px;
@@ -67,7 +81,6 @@ button.btn.btn-success.btn-menu {
 
 
 /*Signin Page  */
-
 input#inlineFormInput.form-control {
     margin-bottom: 10px;
     width: 25%;

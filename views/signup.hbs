@@ -1,13 +1,14 @@
 <div class="container signup-box">
-    <form id="signup" name="signup" method="post" action="/signup">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" placeholder="" />
-        <label for="firstname">Firstname</label>
-        <input name="firstname" type="text" />
-        <label for="lastname">Lastname</label>
-        <input name="lastname" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn btn-info" type="submit" value="Sign Up" />
+    <form class="form-group" id="signup" name="signup" method="post" action="/signup">
+        <div class=" signup-heading">
+            <h2>Sign Up</h2>
+        </div>
+        <label class="sr-only" for="username">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Username">
+
+        <label class="sr-only" for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+
+        <button type="submit" class="btn btn-primary" value="Sign In"> Submit</button>
     </form>
 </div>
