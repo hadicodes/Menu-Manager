@@ -5,6 +5,7 @@ module.exports = function (router) {
     router.get("/api/order", function (req, res) {
         db.Order.findAll({}).then(function (dbOrder) {
             res.json(dbOrder);
+            <script src="/reload/reload.js"></script>
         });
     });
 };

@@ -1,7 +1,13 @@
 $(document).ready(function () {
-    getMenuItemsData();
-    updateTotalButtonClick();
+    renderOrder();
 });
+
+function renderOrder() {
+    getMenuItemsData()
+        .done(renderMenuItemsTemplate)
+        .then(updateTotal)
+        .then(updateTotalButtonClick);
+}
 
 // Gets menu item's id from session storage
 function getMenuItemsData() {
@@ -12,7 +18,7 @@ function getMenuItemsData() {
             menuItemIds: menuItemsIds
         }
     };
-    $.ajax(url, settings).done(renderMenuItemsTemplate);
+    return $.ajax(url, settings);
 }
 
 function renderMenuItemsTemplate(orderableMenuItems) {
@@ -43,5 +49,5 @@ function getTotal() {
 
 function updateTotal() {
     var total = getTotal();
-    $('#total').html('$ '+ total);
+    $('#total').html('$ ' + total);
 }

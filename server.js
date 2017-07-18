@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars');
 var passport = require('passport');
 var session = require('express-session');
 
+// Instantiate express
 const app = express();
 
 // Middleware
@@ -59,3 +60,4 @@ db.sequelize.sync().then(function () {
 }).catch(function (err) {
     console.log(err);
 });
+

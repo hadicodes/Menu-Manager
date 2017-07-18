@@ -16,9 +16,6 @@
             <th>
                 <h4>Quantity</h4>
             </th>
-            <th>
-                <h4>Delete</h4>
-            </th>
         </tr>
     </thead>
     <tbody id="menuitems-list"></tbody>
@@ -30,22 +27,7 @@
 <footer class="footer order-total">
     <div class="container">
         <button id="update-total-button" class="btn btn-primary" role="button">Update Total</button>
-        <table class="table">
-            <thead class="thead-inverse">
-                <tr>
-                    <th>
-                        <h2>Total:</h2>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">
-                        <h4 id="total"></h4>
-                    </th>
-                    <tr>
-            </tbody>
-        </table>
+        <h1>Total: <strong id="total"></strong></h1>
     </div>
 </footer>
 
@@ -56,8 +38,7 @@
         <tr class="menuitem-details">
             <td class="menuitem-name">{{this.name}}</td>
             <td class="menuitem-price">{{this.price}}</td>
-            <td><input class="menuitem-quantity" type="number" name="quantity" min="1" max="10"></td>
-            <td><button type="button" class="btn btn-danger">Delete</button></td> 
+            <td><input class="menuitem-quantity" type="number" name="quantity" min="0" max="10" value="1"></td>
         </tr>
     {{/each}}
 </script>

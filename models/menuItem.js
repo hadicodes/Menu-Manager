@@ -24,10 +24,10 @@ module.exports = function (sequelize, DataTypes) {
                 min: 0.01
             }
         },
-        image: {
-            type: DataTypes.BLOB,
-            allowNull: false,
-        },
+        // image: {
+        //     type: DataTypes.BLOB,
+        //     allowNull: false,
+        // },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
