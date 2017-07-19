@@ -13,9 +13,9 @@ router.post("/menu/add", isLoggedIn, menuItemController.createMenuItem);
 
 router.get('/order', menuItemController.renderOrder);
 
-router.delete("/menu/:id/delete", menuItemController.deleteMenuItem);
-
 router.put("/menu/:id/edit", menuItemController.updateMenuItem);
+
+router.delete("/menu/:id/delete", menuItemController.deleteMenuItem);
 
 function isLoggedIn(req, res, next) {
 
