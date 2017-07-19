@@ -1,23 +1,24 @@
 <div class="container header">
     <div class="container">
-        <h1 class="display-3" style="text-align:center;">Menu Items</h1>
+        <h1 class="display-3 menu-items-heading" style="text-align:center;">Menu Items</h1>
     </div>
 </div>
 
 <div class="container">
     <div class="list-group">
-    {{#each menuItems}}
+        {{#each menuItems}}
         <div class="list-group-item justify-content-between">
-            <div> 
-                <h4 class="card-title">{{ this.name }}</h4>
+            <div>
+                <h3 class="card-title">{{ this.name }}</h3>
+                <hr>
                 <p class="card-text">{{ this.category }}</p>
-                <a href="#" class="btn btn-primary">{{ this.price }}</a>
+                <h4 class="price">${{ this.price }}</h4>
             </div>
             <div class="div">
                 <input type="checkbox" name="id" value={{this.id}}>Add to cart
             </div>
         </div>
-    {{/each}}
+        {{/each}}
     </div>
     <br>
     <button class="float-right btn-success btn" id="add-items-btn">Add Items to Cart</button>

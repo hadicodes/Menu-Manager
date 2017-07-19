@@ -21,3 +21,4 @@ $('#add-items-btn').on('click', function(){
     storeIdsInSessionStorage();
     redirectToOrderPage();
 });
+

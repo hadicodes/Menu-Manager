@@ -2,7 +2,7 @@
 
 nav.navbar.navbar-toggleable {
     color: #f7f7f7;
-    background-color: #271570;
+    background-color: #6772e5;
 }
 
 a.navbar-brand {
@@ -48,7 +48,18 @@ form#signup.form-group {
 
 button#update-total-button.btn.btn-primary {
     margin-bottom: 5px;
+    background-image: linear-gradient(-225deg, #6772e5 0%, #B19FFF 67%, #FBE7FF 100%);
+    color: #fff;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+    border-radius: 20px;
+    border-color: none;
 }
+
+
+h1.display-3.large-text{
+    margin-top: 20px;
+}
+
 
 input {
     margin-right: 10px;
@@ -92,39 +103,89 @@ div.signin-heading {
     margin-right: 10px;
 }
 
-div.signin-heading h2 {
+div.signin-heading h1 {
     color: #fff;
     text-align: center;
+    font-size: 54px;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
+    width: 250px;
+    border-radius: 5PX;
+    margin-left: 7px;
+background: -webkit-linear-gradient(#6C57D3, #39307B);
+    padding-bottom:9px; 
+}
+
+hr{
+        width: 265px;
 }
 
 div.col.signin-box {
-    border: 1px solid blue;
     border-radius: 10px;
     width: 25%;
     margin-top: 53px;
-    padding: 26px 50px;
-    background: linear-gradient(to left top, #732CB7, #321C8B);
+    margin-right: auto;
+    padding: 47px 52px;
+    background-image: linear-gradient(to top, #5348A1 0, #7795f8 100%);
     margin-left: 375px;
-    padding-bottom: 168px;
+    padding-bottom: 111px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);    
 }
 
-button.btn.btn-primary {
+button.btn.btn-primary.submit-signin {
     border-radius: 30px;
     width: 261px;
-    background: linear-gradient(to left top, #FFBD71, #FF5F6D);
+    background-color: #fff;
     border: none;
+    color: #7795f8;
+    font-weight: lighter;
+    font-size: 22px;
+    color: #FC6F77;
+    margin-left: 3px;
 }
 
 input#username.form-control {
     margin-bottom: 10px;
     width: 215%;
+    font-size: 22px;
+    margin-left: 5px;
+}
+
+input#username.form-control::placeholder {
+    background: -webkit-linear-gradient(#6C57D3, #5348A1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: lighter;
+    font-weight: lighter;
 }
 
 input#password.form-control {
     margin-bottom: 10px;
     width: 215%;
+    font-size: 22px;
+    margin-left: 5px;
+}
+
+input#password.form-control::placeholder {
+    background: -webkit-linear-gradient(#6C57D3, #5348A1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: lighter;
 }
 
 .login-form {
     padding-top: 40px;
+}
+
+
+/*menu items page  */
+.menu-items-heading {
+    margin-top: 15px;
+}
+
+.price{
+    color: #F87171;
+    font-family: 'Montserrat', sans-serif;
+
 }
