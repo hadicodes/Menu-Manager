@@ -4,7 +4,7 @@ const db = require('../models');
 var exports = module.exports = {};
 
 //======================================
-// Get Menu Controller
+// Get Menu Items Controller
 //======================================
 exports.getMenu = function (req, res) {
     db.MenuItem.findAll({
@@ -17,12 +17,12 @@ exports.getMenu = function (req, res) {
 };
 
 //======================================
-// Add Items Controller
+// Add/Edit Items Controller
 //======================================
 exports.renderAddMenuItemPage = function (req, res) {
     db.MenuItem.findAll({}).then(menuItems => {
         res.render("addMenuItem", {
-            menuItems: menuItems, 
+            menuItems: menuItems,
             loggedin: true
         });
     });
@@ -39,18 +39,6 @@ exports.createMenuItem = function (req, res) {
         .then(function (data) {
             res.redirect('/menu');
         });
-};
-
-//======================================/
-// Order Checkout Route
-//======================================
-// Retrieves all added menu items for an order from db
-exports.renderOrder = function (req, res) {
-    db.MenuItem.findAll({}).then(menuItems => {
-        res.render("order", {
-            menuItems: menuItems
-        });
-    });
 };
 
 
@@ -70,14 +58,15 @@ exports.deleteMenuItem = function (req, res) {
         });
 };
 
+
+//======================================/
+// Order Checkout Route
 //======================================
-// Update Items Controller
-//======================================
-//Updates a menu item to db
-exports.updateMenuItem = function (req, res) {
-    var condtion = req.params.id;
-    db.MenuItem.update({})
-        .then(function () {
-            res.redirect("/menu");
+// Retrieves all added menu items for an order from db
+exports.renderOrder = function (req, res) {
+    db.MenuItem.findAll({}).then(menuItems => {
+        res.render("order", {
+            menuItems: menuItems
         });
+    });
 };
