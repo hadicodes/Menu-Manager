@@ -1,26 +1,27 @@
 <div class="container order-header">
     <div class="container">
-        <h1 class="display-3 large-text">Your Order</h1>
+        <h1 class="display-3 large-text your-order-heading">Your Order</h1>
     </div>
 </div>
 
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>
-                <h4>Menu Item</h4>
-            </th>
-            <th>
-                <h4>Price</h4>
-            </th>
-            <th>
-                <h4>Quantity</h4>
-            </th>
-        </tr>
-    </thead>
-    <tbody id="menuitems-list"></tbody>
-</table>
-
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    <h4>Menu Item</h4>
+                </th>
+                <th>
+                    <h4>Price</h4>
+                </th>
+                <th>
+                    <h4>Quantity</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="menuitems-list"></tbody>
+    </table>
+</div>
 <br>
 <br>
 <br> {{!--Order Total--}}
@@ -35,11 +36,11 @@
 {{{{raw-helper}}}}
 <script id="menuitems-list-template" type="text/x-handlebars-template">
     {{#each orderableMenuItems}}
-        <tr class="menuitem-details">
-            <td class="menuitem-name">{{this.name}}</td>
-            <td class="menuitem-price">{{this.price}}</td>
-            <td><input class="menuitem-quantity" type="number" name="quantity" min="0" max="10" value="1"></td>
-        </tr>
+    <tr class="menuitem-details">
+        <td class="menuitem-name">{{this.name}}</td>
+        <td class="menuitem-price">{{this.price}}</td>
+        <td><input class="menuitem-quantity" type="number" name="quantity" min="0" max="10" value="1"></td>
+    </tr>
     {{/each}}
 </script>
 {{{{/raw-helper}}}}

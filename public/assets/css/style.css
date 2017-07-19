@@ -46,6 +46,11 @@ form#signup.form-group {
     margin-left: 8px;
 }
 
+.your-order-heading{
+    text-align: center;
+    margin-right: 20px;
+}
+
 button#update-total-button.btn.btn-primary {
     margin-bottom: 5px;
     background-image: linear-gradient(-225deg, #6772e5 0%, #B19FFF 67%, #FBE7FF 100%);
