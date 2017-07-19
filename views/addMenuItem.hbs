@@ -1,16 +1,49 @@
 <div class="container header">
     <div class="container">
-            <h1 class="display-3" style="text-align:center;">Add Menu Items</h1>
-            <p class="lead" style="text-align:center;">Please enter items that you'd like to add to the menu.</p>
+        <h1 class="display-3 add-items-heading" style="text-align:center;">Add Menu Items</h1>
+        <p class="lead" style="text-align:center;">Please enter items that you'd like to add to the menu.</p>
     </div>
 </div>
 
 
 <div class="container add-menu-item-form">
     <div class="row">
+        <div class="col-md-4">
+            <form class="form" action="/menu/add" method="post">
+                <fieldset class="form-group">
+                    <label for="item-name">Add a menu item:</label>
+                    <input type="text" class="form-control" id="item-name" name="name">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="item-description"> Description:</label>
+                    <input type="text" class="form-control" id="item-description" name="description">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="item-category"> Category:</label>
+                    <input type="text" class="form-control" id="item-category" name="category">
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="item-price"> Price:</label>
+                    <input type="text" class="form-control" id="item-price" name="price">
+                </fieldset>
+                <button type="submit" class="btn btn-success btn-menu">Submit</button>
+            </form>
+        </div>
+
+        {{!--Edit Item DropDown --}}
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Edit a Menu Item</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+
         <form class="form" action="/menu/add" method="post">
             <fieldset class="form-group">
-                <label for="item-name">Add a menu item:</label>
+                <label for="item-name">Edit a menu item:</label>
                 <input type="text" class="form-control" id="item-name" name="name">
             </fieldset>
             <fieldset class="form-group">
@@ -28,9 +61,4 @@
             <button type="submit" class="btn btn-success btn-menu">Submit</button>
         </form>
     </div>
-</div>
-
-
-
-
 

@@ -4,6 +4,16 @@
     </div>
 </div>
 
+<div class="container category-div">
+
+</div>
+
+<div class="container menuitem-div">
+
+{{!--If it's a category  --}}
+
+
+
 <div class="container">
     <div class="list-group">
         {{#each menuItems}}
@@ -23,6 +33,13 @@
     <br>
     <button class="float-right btn-success btn" id="add-items-btn">Add Items to Cart</button>
 </div>
+
+{{#if author}}
+    <h1>{{firstName}} {{lastName}}</h1>
+  {{else}}
+    <h1>Unknown Author</h1>
+  {{/if}}
+
 
 {{!--{{#each menuItems}}
 <div class="container">
