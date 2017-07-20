@@ -6,7 +6,9 @@ function renderOrder() {
     getMenuItemsData()
         .done(renderMenuItemsTemplate)
         .then(updateTotal)
-        .then(updateTotalButtonClick);
+        .then(updateTotalButtonClick)
+        .then(addTipButtonClick);
+
 }
 
 // Gets menu item's id from session storage
@@ -47,7 +49,22 @@ function getTotal() {
     return total;
 }
 
+
+function addTipButtonClick() {
+    // On tip btn click
+    $('.tip-button').click(function () {
+        // get tip value from data- attribute in HTML
+        var tipPercent = $(this).data('tip-multiplier');
+        // multiply tip percent by the total; return the new total
+        var tippedTotal = getTotal() * parseFloat(tipPercent);
+        tippedTotal = tippedTotal.toFixed(2);
+        //append to grand total
+        $('#total').text(`$${tippedTotal}`);
+    });
+}
+
 function updateTotal() {
     var total = getTotal();
-    $('#total').html('$ ' + total);
+    $('#total').text(`$${total}`);
+    $('#subtotal').text(`$${total}`);
 }

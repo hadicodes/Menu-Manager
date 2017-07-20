@@ -26,12 +26,19 @@
 <br>
 <br> {{!--Order Total--}}
 <footer class="footer order-total">
-    <div class="container">
+    <div class="container total-container">
         <button id="update-total-button" class="btn btn-primary" role="button">Update Total</button>
+        <h3 class="subtotal-class">Subtotal: <strong id="subtotal"></strong></h3>
         <h1>Total: <strong id="total"></strong></h1>
+        <div class="container btn-group tips" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary btn-sm tip-button" id="add-10" data-tip-multiplier="1.10">Add 10% tip</button>
+            <button type="button" class="btn btn-success btn-sm tip-button" id="add-15" data-tip-multiplier="1.15">Add 15% tip</button>
+            <button type="button" class="btn btn-danger btn-sm tip-button" id= "add-20" data-tip-multiplier="1.20">Add 20% tip</button>
+        </div>
     </div>
 </footer>
 
+{{!--Handlebars raw helper: Will iterate through orderableaMenuItems and append to order table dynamic values --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
 {{{{raw-helper}}}}
 <script id="menuitems-list-template" type="text/x-handlebars-template">

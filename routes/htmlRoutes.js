@@ -4,18 +4,24 @@ const router = express.Router();
 
 const menuItemController = require('../controllers/menuItemController.js');
 
-// Retrieves all menu items from db, groups by category.
+//======================================
+// RESTFUL Routes
+//======================================
+// Lists all menu items from db, groups by category.
 router.get('/menu', menuItemController.getMenu);
 
+// Shows add new item form 
 router.get('/menu/add', isLoggedIn, menuItemController.renderAddMenuItemPage);
 
-router.post("/menu/add", isLoggedIn, menuItemController.createMenuItem);
+// Creates a new added menu item and posts it to DB
+router.post('/menu/add', isLoggedIn, menuItemController.createMenuItem);
 
+// Shows Item and info about a user's order
 router.get('/order', menuItemController.renderOrder);
 
-router.put("/menu/:id/edit", menuItemController.updateMenuItem);
+router.delete('/menu/:id/', menuItemController.deleteMenuItem);
 
-router.delete("/menu/:id/delete", menuItemController.deleteMenuItem);
+router.put('/menu/edit', menuItemController.updateMenuItem);
 
 function isLoggedIn(req, res, next) {
 

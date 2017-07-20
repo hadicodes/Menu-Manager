@@ -41,6 +41,35 @@ exports.createMenuItem = function (req, res) {
         });
 };
 
+//Edits an existing menu Item into db
+exports.updateMenuItem = function (req, res) {
+    db.MenuItem.update({
+            name: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            price: req.body.price,
+        })
+        .then(function (data) {
+            res.redirect('/menu');
+        });
+};
+
+
+
+//======================================/
+// Order Checkout Route
+//======================================
+// Retrieves all added menu items for an order from db
+exports.renderOrder = function (req, res) {
+    db.MenuItem.findAll({}).then(menuItems => {
+        res.render("order", {
+            menuItems: menuItems
+        });
+    });
+};
+
+
+
 
 //======================================
 // Delete Items Controller
@@ -56,17 +85,4 @@ exports.deleteMenuItem = function (req, res) {
         .then(function (data) {
             res.redirect('/menu');
         });
-};
-
-
-//======================================/
-// Order Checkout Route
-//======================================
-// Retrieves all added menu items for an order from db
-exports.renderOrder = function (req, res) {
-    db.MenuItem.findAll({}).then(menuItems => {
-        res.render("order", {
-            menuItems: menuItems
-        });
-    });
 };

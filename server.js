@@ -1,17 +1,21 @@
 // Dependencies
-const express = require('express');
-const bodyParser = require('body-parser');
-var env = require('dotenv').load();
-const exphbs = require('express-handlebars');
+const express = require('express'),
+    bodyParser = require('body-parser'),
+    exphbs = require('express-handlebars'),
+    methodOverride = require('method-override');
 
-var passport = require('passport');
-var session = require('express-session');
-var flash = require('connect-flash');
+// Passport Dependencies
+const passport = require('passport'),
+    env = require('dotenv').load(),
+    session = require('express-session'),
+    flash = require('connect-flash');
 
 // Instantiate express
 const app = express();
 
 // Middleware
+// override with POST having ?_method=PUT or _method=DELETE
+app.use(methodOverride('_method'))
 app.use(express.static(process.cwd() + '/public'));
 app.use(bodyParser.urlencoded({
     extended: true
@@ -23,7 +27,9 @@ app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
     helpers: {
-        "raw-helper": function (options) { return options.fn(); },
+        "raw-helper": function (options) {
+            return options.fn();
+        },
     }
 }));
 // Set our view engine to be Handlebars i.e. uses .hbs extension on files
@@ -61,4 +67,3 @@ db.sequelize.sync().then(function () {
 }).catch(function (err) {
     console.log(err);
 });
-

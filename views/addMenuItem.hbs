@@ -7,34 +7,24 @@
 
 <div class="container add-menu-item-form">
     <div class="row">
-            <form class="form" action="/menu/add" method="post">
-                <fieldset class="form-group">
-                    <h3>Add Menu Items</h3>
-                    <label for="edit-items">Edit an existing item</label>
-                    <select class="custom-select" id="edit-items">
-                        <option value="" name="id"></option>
-                        {{#each menuItems}}
-                        <option value={{this.id}} name="id">{{this.name}}</option>
-                        {{/each}}
-                    </select>
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="item-name">Menu Item Name:</label>
-                    <input type="text" class="form-control" id="item-name" name="name">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="item-description"> Description:</label>
-                    <input type="text" class="form-control" id="item-description" name="description">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="item-category"> Category:</label>
-                    <input type="text" class="form-control" id="item-category" name="category">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="item-price"> Price:</label>
-                    <input type="text" class="form-control" id="item-price" name="price">
-                </fieldset>
-                <button type="submit" class="btn btn-success btn-menu">Submit</button>
-            </form>
+        <form class="form" action="/menu/add" method="post">
+            <fieldset class="form-group">
+                <label for="item-name">Menu Item Name:</label>
+                <input type="text" class="form-control" id="item-name" name="name">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="item-description"> Description:</label>
+                <input type="text" class="form-control" id="item-description" name="description">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="item-category"> Category:</label>
+                <input type="text" class="form-control" id="item-category" name="category">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="item-price"> Price:</label>
+                <input type="text" class="form-control" id="item-price" name="price">
+            </fieldset>
+            <button type="submit" class="btn btn-success btn-menu">Submit</button>
+        </form>
     </div>
 </div>
