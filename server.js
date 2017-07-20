@@ -14,14 +14,15 @@ const passport = require('passport'),
 const app = express();
 
 // Middleware
-// override with POST having ?_method=PUT or _method=DELETE
-app.use(methodOverride('_method'))
+// serve static files from public directory
 app.use(express.static(process.cwd() + '/public'));
+// body parser parses request bodies from forms
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(flash());
 app.use(bodyParser.json());
+// override with POST having ?_method=PUT or _method=DELETE
+app.use(methodOverride('_method'));
 // Use handlebars as our templating engine
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
@@ -43,6 +44,7 @@ app.use(session({
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+app.use(flash()); // flash messages for passport
 
 // Models
 const db = require('./models');

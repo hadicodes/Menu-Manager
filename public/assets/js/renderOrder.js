@@ -11,7 +11,7 @@ function renderOrder() {
 
 }
 
-// Gets menu item's id from session storage
+// Gets menu item's id from session storage and retrieves info for them
 function getMenuItemsData() {
     const menuItemsIds = sessionStorage.getItem('menuItemIds');
     const url = '/api/menuItems/ids';
@@ -65,6 +65,7 @@ function addTipButtonClick() {
 
 function updateTotal() {
     var total = getTotal();
+    total = total.toFixed(2);
     $('#total').text(`$${total}`);
     $('#subtotal').text(`$${total}`);
 }

@@ -19,3 +19,15 @@ exports.renderMenuItemsFromIds = function (req, res) {
         res.json(menuItems);
     });
 };
+
+exports.renderOneMenuItem = function (req, res) {
+    const menuItemId= req.query.menuItemId || "";
+    db.MenuItem.find({
+        where: {
+            id: menuItemId
+        }
+    }).then(menuItem => {
+        res.json(menuItem);
+    });
+
+}

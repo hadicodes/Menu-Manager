@@ -24,10 +24,6 @@ module.exports = function (sequelize, DataTypes) {
                 min: 0.01
             }
         },
-        // image: {
-        //     type: DataTypes.BLOB,
-        //     allowNull: false,
-        // },
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
@@ -35,14 +31,6 @@ module.exports = function (sequelize, DataTypes) {
         updatedAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
-        }
-    }, {
-        classMethods: {
-            associate: function (models) {
-                MenuItem.belongsToMany(models.Order, {
-                    through: 'OrderedMenuItem'
-                });
-            }
         }
     });
 

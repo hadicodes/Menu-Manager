@@ -11,7 +11,6 @@ module.exports = function (app, passport) {
             failureRedirect: '/signup',
             failureFlash: true
         }
-
     ));
 
     // route to signin page

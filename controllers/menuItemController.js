@@ -17,7 +17,7 @@ exports.getMenu = function (req, res) {
 };
 
 //======================================
-// Add/Edit Items Controller
+// Add Items Controller
 //======================================
 exports.renderAddMenuItemPage = function (req, res) {
     db.MenuItem.findAll({}).then(menuItems => {
@@ -41,48 +41,40 @@ exports.createMenuItem = function (req, res) {
         });
 };
 
-//Edits an existing menu Item into db
+//======================================
+// Edit Items Controller
+//======================================
+// Shows Edit Menu Items Page
+exports.renderEditMenuItemPage = function (req, res) {
+    db.MenuItem.findAll({}).then(menuItems => {
+        res.render("editMenuItem", {
+            menuItems: menuItems,
+            loggedin: true
+        });
+    });
+};
+
+//Edits an existing menu Item
 exports.updateMenuItem = function (req, res) {
     db.MenuItem.update({
             name: req.body.name,
             description: req.body.description,
             category: req.body.category,
             price: req.body.price,
+        }, {
+            where: {
+                id: req.params.id
+            }
         })
         .then(function (data) {
-            res.redirect('/menu');
+            res.redirect('/menu/');
         });
 };
-
-
 
 //======================================/
 // Order Checkout Route
 //======================================
-// Retrieves all added menu items for an order from db
+// Renders order template
 exports.renderOrder = function (req, res) {
-    db.MenuItem.findAll({}).then(menuItems => {
-        res.render("order", {
-            menuItems: menuItems
-        });
-    });
-};
-
-
-
-
-//======================================
-// Delete Items Controller
-//======================================
-//Deletes a menu item from  db
-exports.deleteMenuItem = function (req, res) {
-    var condtion = req.params.id;
-    db.MenuItem.destroy({
-            where: {
-                id: condtion
-            }
-        })
-        .then(function (data) {
-            res.redirect('/menu');
-        });
+    res.render("order");
 };

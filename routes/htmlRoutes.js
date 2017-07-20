@@ -19,10 +19,14 @@ router.post('/menu/add', isLoggedIn, menuItemController.createMenuItem);
 // Shows Item and info about a user's order
 router.get('/order', menuItemController.renderOrder);
 
-router.delete('/menu/:id/', menuItemController.deleteMenuItem);
+// Renders edit menu item form
+router.get('/menu/edit', isLoggedIn, menuItemController.renderEditMenuItemPage);
 
-router.put('/menu/edit', menuItemController.updateMenuItem);
+// Edits a menu item and posts changes to db
+router.put('/menu/edit/:id', isLoggedIn, menuItemController.updateMenuItem);
 
+
+// passport function to check if user is logged in (admin)
 function isLoggedIn(req, res, next) {
 
     if (req.isAuthenticated())

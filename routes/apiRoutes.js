@@ -6,4 +6,6 @@ const apiController = require('../controllers/apiController.js');
 
 router.get('/menuItems/ids', apiController.renderMenuItemsFromIds);
 
+router.get('/menuItem', apiController.renderOneMenuItem);
+
 module.exports = router;
