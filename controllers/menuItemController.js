@@ -9,7 +9,7 @@ var exports = module.exports = {};
 exports.getMenu = function (req, res) {
     db.MenuItem.findAll({
         order: ['category']
-    }).then(menuItems => {
+    }).then(function (menuItems) {
         res.render("menu", {
             menuItems: menuItems
         });
