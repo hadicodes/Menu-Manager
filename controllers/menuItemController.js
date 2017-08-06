@@ -46,7 +46,7 @@ exports.createMenuItem = function (req, res) {
 //======================================
 // Shows Edit Menu Items Page
 exports.renderEditMenuItemPage = function (req, res) {
-    db.MenuItem.findAll({}).then(menuItems => {
+    db.MenuItem.findAll({}).then(function(menuItems) {
         res.render("editMenuItem", {
             menuItems: menuItems,
             loggedin: true
