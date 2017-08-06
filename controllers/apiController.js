@@ -15,7 +15,7 @@ exports.renderMenuItemsFromIds = function (req, res) {
                 $in: menuItemIds
             }
         }
-    }).then(menuItems => {
+    }).then(function(menuItems)  {
         res.json(menuItems);
     });
 };
@@ -26,7 +26,7 @@ exports.renderOneMenuItem = function (req, res) {
         where: {
             id: menuItemId
         }
-    }).then(menuItem => {
+    }).then(function(menuItem)  {
         res.json(menuItem);
     });
 
