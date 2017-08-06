@@ -20,7 +20,7 @@ exports.getMenu = function (req, res) {
 // Add Items Controller
 //======================================
 exports.renderAddMenuItemPage = function (req, res) {
-    db.MenuItem.findAll({}).then(menuItems => {
+    db.MenuItem.findAll({}).then(function (menuItems) {
         res.render("addMenuItem", {
             menuItems: menuItems,
             loggedin: true
@@ -46,7 +46,7 @@ exports.createMenuItem = function (req, res) {
 //======================================
 // Shows Edit Menu Items Page
 exports.renderEditMenuItemPage = function (req, res) {
-    db.MenuItem.findAll({}).then(function(menuItems) {
+    db.MenuItem.findAll({}).then(function (menuItems) {
         res.render("editMenuItem", {
             menuItems: menuItems,
             loggedin: true
