@@ -4,10 +4,15 @@ module.exports = function (sequelize, DataTypes) {
             autoIncrement: true,
             type: DataTypes.INTEGER,
             primaryKey: true
+
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            // adds letter only vaidation
+            validate: {
+                is: ["^[a-z]+$", 'i']
+            }
         },
         description: {
             type: DataTypes.TEXT,
