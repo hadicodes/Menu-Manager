@@ -9,7 +9,8 @@ function getCheckedValues() {
 // Save values of data to sessionStorage
 function storeIdsInSessionStorage() {
     var menuItemIds = getCheckedValues();
-    sessionStorage.setItem('menuItemIds', menuItemIds);
+    var originaldata = sessionStorage.getItem('menuItemIds');
+    sessionStorage.setItem('menuItemIds', menuItemIds.concat(originaldata));
 }
 
 // redirects to menu page
@@ -17,8 +18,7 @@ function redirectToOrderPage() {
     window.location = "/order";
 }
 
-$('#add-items-btn').on('click', function(){
+$('#add-items-btn').on('click', function () {
     storeIdsInSessionStorage();
     redirectToOrderPage();
 });
-

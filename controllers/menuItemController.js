@@ -11,7 +11,8 @@ exports.getMenu = function (req, res) {
         order: ['category']
     }).then(function (menuItems) {
         res.render("menu", {
-            menuItems: menuItems
+            menuItems: menuItems,
+            loggedin: req.isAuthenticated()
         });
     });
 };

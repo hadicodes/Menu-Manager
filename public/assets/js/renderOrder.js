@@ -33,6 +33,7 @@ function renderMenuItemsTemplate(orderableMenuItems) {
     const generatedDataHtml = compiledTemplate(context);
     $('#menuitems-list').append(generatedDataHtml);
 }
+//==================================================================================================
 
 function updateTotalButtonClick() {
     $('#update-total-button').click(updateTotal);
