@@ -40,6 +40,7 @@
 
 {{!--Handlebars raw helper: Will iterate through orderableaMenuItems and append to order table dynamic values --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+{{!-- Signal for app that this is client side handlebars template   --}}
 {{{{raw-helper}}}}
 <script id="menuitems-list-template" type="text/x-handlebars-template">
     {{#each orderableMenuItems}}

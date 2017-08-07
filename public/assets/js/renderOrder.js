@@ -23,6 +23,7 @@ function getMenuItemsData() {
     return $.ajax(url, settings);
 }
 
+// takes returned data (menuItems) from ajax call and feeds it to the template
 function renderMenuItemsTemplate(orderableMenuItems) {
     const template = $('#menuitems-list-template').html();
     const compiledTemplate = Handlebars.compile(template);
